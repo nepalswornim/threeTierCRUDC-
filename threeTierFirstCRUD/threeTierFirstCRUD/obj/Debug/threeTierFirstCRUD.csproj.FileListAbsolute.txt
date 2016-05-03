@@ -14,3 +14,4 @@ c:\users\swornim nepal\documents\visual studio 2012\Projects\threeTierFirstCRUD\
 C:\Users\Swornim Nepal\documents\visual studio 2012\Projects\threeTierFirstCRUD\threeTierFirstCRUD\obj\Debug\threeTierFirstCRUD.Login.resources
 C:\Users\Swornim Nepal\Documents\Visual Studio 2012\Projects\threeTierFirstCRUD\threeTierFirstCRUD\obj\Debug\threeTierFirstCRUD.AddProduct.resources
 C:\Users\Swornim Nepal\documents\visual studio 2012\Projects\threeTierFirstCRUD\threeTierFirstCRUD\obj\Debug\threeTierFirstCRUD.EditUser.resources
+C:\Users\Swornim Nepal\documents\visual studio 2012\Projects\threeTierFirstCRUD\threeTierFirstCRUD\obj\Debug\threeTierFirstCRUD.AddingRowsToGridview.resources

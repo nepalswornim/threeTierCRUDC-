@@ -19,6 +19,15 @@ namespace BusinessLayer
            
            
        }
+       public DataTable SearchCategorybyCategoryId(int catid) {
+           string sql = "select* from tbl_Category where CategoryId=@a ";
+           SqlParameter[] param = new SqlParameter[] {
+           new SqlParameter("@a",catid)
+           };
+
+           return DAO.SelectUser(sql, param);
+       }
     }
+    
 
 }

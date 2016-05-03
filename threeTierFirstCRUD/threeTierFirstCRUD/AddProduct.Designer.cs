@@ -38,12 +38,14 @@
             this.txtUnitprice = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDubli = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +113,7 @@
             this.txtUnitprice.Name = "txtUnitprice";
             this.txtUnitprice.Size = new System.Drawing.Size(120, 20);
             this.txtUnitprice.TabIndex = 2;
+            this.txtUnitprice.TextChanged += new System.EventHandler(this.txtUnitprice_TextChanged);
             // 
             // btnAddProduct
             // 
@@ -125,18 +128,29 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSN,
             this.colProductId,
             this.ColCategoryId,
             this.ColCategoryName,
             this.colProductName,
             this.colUnitPrice,
             this.colQuantity});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(34, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(462, 150);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // colSN
+            // 
+            this.colSN.HeaderText = "S.N";
+            this.colSN.Name = "colSN";
             // 
             // colProductId
             // 
@@ -170,11 +184,20 @@
             this.colQuantity.HeaderText = "Quantity";
             this.colQuantity.Name = "colQuantity";
             // 
+            // txtDubli
+            // 
+            this.txtDubli.Location = new System.Drawing.Point(237, 76);
+            this.txtDubli.Name = "txtDubli";
+            this.txtDubli.Size = new System.Drawing.Size(120, 20);
+            this.txtDubli.TabIndex = 6;
+            this.txtDubli.TextChanged += new System.EventHandler(this.txtDubli_TextChanged);
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 305);
+            this.Controls.Add(this.txtDubli);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtUnitprice);
@@ -206,11 +229,13 @@
         private System.Windows.Forms.TextBox txtUnitprice;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity;
+        private System.Windows.Forms.TextBox txtDubli;
     }
 }

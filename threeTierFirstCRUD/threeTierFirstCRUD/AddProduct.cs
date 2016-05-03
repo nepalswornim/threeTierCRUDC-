@@ -30,7 +30,7 @@ namespace threeTierFirstCRUD
 
         private void LoadGrid()
         {
-                DataTable dt =blb.LoadGV();
+            DataTable dt = blb.GetAllProduct();
            
             if (dt.Rows.Count > 0)
             {
@@ -39,13 +39,15 @@ namespace threeTierFirstCRUD
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     dataGridView1.Rows.Add();
+                    
                     dataGridView1.Rows[i].Cells["colProductId"].Value = dt.Rows[i]["ProductId"].ToString();
-                    dataGridView1.Rows[i].Cells["ColCategoryId"].Value = dt.Rows[i]["CategoryId"].ToString();
+                    dataGridView1.Rows[i].Cells["ColCategoryID"].Value = dt.Rows[i]["CategoryID"].ToString();
                     dataGridView1.Rows[i].Cells["ColCategoryName"].Value = dt.Rows[i]["CategoryName"].ToString();
-                    dataGridView1.Rows[i].Cells["colProductName"].Value = dt.Rows[i]["Product Name"].ToString();
-                    dataGridView1.Rows[i].Cells["colUnitPrice"].Value = dt.Rows[i]["Unit Price"].ToString();
+                    dataGridView1.Rows[i].Cells["colProductName"].Value = dt.Rows[i]["ProductName"].ToString();
+                    dataGridView1.Rows[i].Cells["colUnitPrice"].Value = dt.Rows[i]["UnitPrice"].ToString();
                     dataGridView1.Rows[i].Cells["colQuantity"].Value = dt.Rows[i]["Quantity"].ToString();
-
+                    dataGridView1.Rows[i].Cells["colSN"].Value = i + 1;
+                    
                 }
             }
         }
@@ -66,6 +68,35 @@ namespace threeTierFirstCRUD
               MessageBox.Show("Inserted Successfully");
               LoadGrid();
           }
+        }
+        int productid = 0;
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int categoryid = Convert.ToInt32(dataGridView1.CurrentRow.Cells["colCategoryId"].Value.ToString());
+            cboCategory.SelectedValue = Convert.ToInt32(dataGridView1.CurrentRow.Cells["colCategoryId"].Value.ToString());
+            //txtProductName.Text = dataGridView1.CurrentRow.Cells["colProductName"].Value.ToString();
+            // txtUnitprice.Text = dataGridView1.CurrentRow.Cells["colUnitPrice"].Value.ToString();
+            // txtQuantity.Text = dataGridView1.CurrentRow.Cells["colQuantity"].Value.ToString();
+
+             productid =Convert.ToInt32( dataGridView1.CurrentRow.Cells["colProductId"].Value.ToString());
+            DataTable dt = blb.GetProductbyProductID(productid);
+            txtProductName.Text = dt.Rows[0]["ProductName"].ToString();
+            txtUnitprice.Text = dt.Rows[0]["UnitPrice"].ToString();
+            txtQuantity.Text = dt.Rows[0]["Quantity"].ToString();
+
+        }
+
+        private void txtUnitprice_TextChanged(object sender, EventArgs e)
+        {
+            txtDubli.Text = txtUnitprice.Text;
+      
+        }
+
+        private void txtDubli_TextChanged(object sender, EventArgs e)
+        {
+           
+      
         }
     }
 }

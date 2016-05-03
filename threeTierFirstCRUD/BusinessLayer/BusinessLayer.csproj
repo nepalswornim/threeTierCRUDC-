@@ -40,7 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLCategory.cs" />
+    <Compile Include="BLLCustomer.cs" />
+    <Compile Include="BLLInvoice.cs" />
     <Compile Include="BLLProduct.cs" />
+    <Compile Include="BLLPurchase.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

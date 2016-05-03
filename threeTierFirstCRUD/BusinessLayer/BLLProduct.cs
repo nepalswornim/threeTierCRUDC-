@@ -25,10 +25,36 @@ namespace BusinessLayer
       return i; 
        
        }
-       public DataTable LoadGV() {
-           string sql = "SELECT* from tbl_Product";
+       public DataTable GetAllProduct() {
+           string sql = "SELECT        tbl_Product.ProductId, tbl_Category.CategoryId, tbl_Category.CategoryName, tbl_Product.ProductName, tbl_Product.UnitPrice, tbl_Product.Quantity FROM tbl_Category INNER JOIN tbl_Product ON tbl_Category.CategoryId = tbl_Product.CategoryId";
            return DAO.SelectUser(sql, null);
        }
+       public DataTable GetProductbyProductID(int productid) {
+           string sql = "select * from tbl_Product where ProductId=@productid";
+           SqlParameter[] param = new SqlParameter[] { 
+           new SqlParameter("@productid",productid)
+          
+           
+           
+           };
+           return DAO.SelectUser(sql, param);
+
+       
+       }
+       public DataTable GetProductbyCategoryID(int categoryid)
+       {
+           string sql = "select * from tbl_Product where CategoryId=@categoryid";
+           SqlParameter[] param = new SqlParameter[] { 
+           new SqlParameter("@categoryid",categoryid)
+          
+           
+           
+           };
+           return DAO.SelectUser(sql, param);
+
+
+       }
+      
       
        
        
